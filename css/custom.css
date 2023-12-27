@@ -20,3 +20,23 @@
     width:60%;
 
   }
+
+  @keyframes upDownAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .lib{
+    animation: upDownAnimation 3s infinite;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
