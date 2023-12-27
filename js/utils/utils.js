@@ -14,7 +14,7 @@ async function getLoggedUser() {
     headers: {
       Accept: "application/json",
       Authorization: "Bearer " + localStorage.getItem("token"),
-      // 'ngrok-skip-browser-warning': 'any'
+      'ngrok-skip-browser-warning': 'any'
     },
   });
 
