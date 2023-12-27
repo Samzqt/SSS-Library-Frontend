@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SSS LIBRARY | Dashboard</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/homelogo.png" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="js/system/dashboard.js"></script>
+    <script src="js/utils/scripts.js" defer></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <!-- Top Navigation -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3 bg-white" href="index.html"><img class="img-fluid mx-auto d-block pt-1" src="assets/img/SSS_Library.png" width="150px"></a>  
+          <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+      ></form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <!-- <li><hr class="dropdown-divider" /></li> -->
+            <li>
+              <a class="dropdown-item" href="#" id="btn_logout">Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- End of Top Navigation -->
+
+    <div id="layoutSidenav">
+      <!-- Side Navigation -->
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav bg-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div>
+                <img class="img-fluid mx-auto d-block pt-2 pb-2" src="assets/img/pc_lib.png" width="200px" height="200px">
+            </div>
+              <a class="nav-link text-white active" href="dashboard.html">
+                <div class="sb-nav-link-icon active">
+                  <i class="fas fa-gauge"></i>
+                </div>
+                <b>Dashboard</b>
+              </a>
+
+              <!-- Admin Pages -->
+              <div id="nav_admin_pages"></div>
+
+              <div class="sb-sidenav-menu-heading text-white">Pages</div>
+              <a class="nav-link text-white" href="books.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                Books
+              </a>
+              <a class="nav-link text-white" href="authors.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                Authors
+              </a>
+              <a class="nav-link text-white" href="genres.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-bookmark"></i>
+                </div>
+                Genres
+              </a>
+            </div>
+          </div>
+          <div class="justify-content-center bg-dark ps-2 pb-2">
+            <div class="small text-white">Logged in as:</div>
+            <span class="text-white" id="user_logged"></span>
+        </div>
+        </nav>
+      </div>
+      <!-- End of Side Navigation -->
+
+      <div id="layoutSidenav_content">
+        <main>
+          <!-- Content -->
+          <div class="container-fluid px-4">
+            <h1 class="mt-4 text-center text-bg pb-4"><b>Dashboard</b></h1>
+            <div class="row">
+              <!-- Notifications -->
+              <div class="alert alert-success d-none" role="alert"></div>
+              <div class="alert alert-danger d-none" role="alert"></div>
+            </div>
+          </div>
+          <section>
+            <div class="row justify-content-center">
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+                  <div class="card card-default rounded-0 shadow bg-primary bg-gradient border-0 text-light">
+                      <div class="card-body">
+                          <div class="container-fluid">
+                              <div class="row mx-0 w-100 align-items-center">
+                                  <div class="col-3">
+                                      <i class="fs-1 text-light fa fas fa-book"></i>
+                                  </div>
+                                  <div class="col-9">
+                                      <h1 class="text-end" id="dashboard-books-count"></h2>
+                                  </div>
+                                  <div class="col-12 text-end"><b>Active Books</b></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+                  <div class="card card-default rounded-0 shadow bg-gradient bg-dark bg-opacity-75 text-light">
+                      <div class="card-body">
+                          <div class="container-fluid">
+                              <div class="row mx-0 w-100 align-items-center">
+                                  <div class="col-3">
+                                      <i class="fs-1 text-light fa fa-user-friends"></i>
+                                  </div>
+                                  <div class="col-9">
+                                      <h1 class="text-end" id="dashboard-authors-count"></h2>
+                                  </div>
+                                  <div class="col-12 text-end"><b>Active Authors</b></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+                  <div class="card card-default rounded-0 shadow bg-gradient bg-success bg-opacity-75 text-light">
+                      <div class="card-body">
+                          <div class="container-fluid">
+                              <div class="row mx-0 w-100 align-items-center">
+                                  <div class="col-3">
+                                      <i class="fs-1 text-light fa fas fa-bookmark"></i>
+                                  </div>
+                                  <div class="col-9">
+                                      <h1 class="text-end" id="dashboard-genres-count"></h2>
+                                  </div>
+                                  <div class="col-12 text-end"><b>Active Genres</b></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          <!-- End of Content -->
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <footer class="pb-4 pt-3 bg-dark mt-auto">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-center small">
+        <div class="text-white">
+          Copyright &copy; SSS Library
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
